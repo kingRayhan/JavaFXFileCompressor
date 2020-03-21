@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="350.0" styleClass="root" stylesheets="@app.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="350.0" styleClass="root" stylesheets="@app.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.MainController">
    <children>
       <Text fill="WHITE" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label" text="Welcome to file encoder" textAlignment="CENTER">
          <font>
@@ -17,7 +17,7 @@
             <Insets bottom="15.0" />
          </VBox.margin>
       </Text>
-      <Button mnemonicParsing="false" onAction="#uploadFile" styleClass="upload-button" text="Upload your file">
+      <Button fx:id="uploaderBtn" mnemonicParsing="false" onAction="#uploadFile" styleClass="upload-button" text="Upload your file">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

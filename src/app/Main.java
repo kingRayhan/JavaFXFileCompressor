@@ -1,29 +1,29 @@
 package app;
-
 import javafx.application.Application;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    public Stage mainWIndow;
+    private Button uploaderBtn;
 
+
+    /**
+     * Start the primary stage
+     * @param primaryStage
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-        Parent root = Utils.loadView("welcome.fxml");
-        Scene scene = new Scene(root , 350 , 250);
-
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("Welcome Screen");
+        primaryStage.setScene(Utils.loadView("welcome.fxml"));
+        primaryStage.setTitle("Welcome");
         primaryStage.show();
-
-        mainWIndow = primaryStage;
-
     }
 
-
+    /**
+     * Main method
+     * @param args
+     */
     public static void main(String[] args)
     {
         launch(args);
