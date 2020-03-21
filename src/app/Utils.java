@@ -11,8 +11,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class Utils {
-    public static Scene loadView(String location) throws IOException {
-        return new Scene(FXMLLoader.load(Utils.class.getResource(location)));
+    public static FXMLLoader loadView(String location) throws IOException {
+        FXMLLoader root = FXMLLoader.load(Utils.class.getResource(location));
+        return root;
     }
 
     public static String getFileContents(String fileLocation) {
@@ -29,4 +30,9 @@ public class Utils {
     public static int getByte(String txt) throws UnsupportedEncodingException {
         return txt.getBytes(StandardCharsets.UTF_8).length;
     }
+
+//    public static String getFileName(String localtion)
+//    {
+////        return localtion.split("\")
+//    }
 }

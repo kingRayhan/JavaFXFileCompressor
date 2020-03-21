@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -15,11 +16,7 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </Text>
-            <Text fx:id="fileSizeText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="96.826171875">
-               <font>
-                  <Font name="System Bold" size="21.0" />
-               </font>
-            </Text>
+            <Label fx:id="fileSize" text="Label" />
          </children>
       </HBox>
    </children>
