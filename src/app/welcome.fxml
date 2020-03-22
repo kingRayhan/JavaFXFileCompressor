@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="350.0" styleClass="root" stylesheets="@app.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.MainController">
+<VBox fx:id="window" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="350.0" styleClass="root" stylesheets="@app.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.MainController">
    <children>
       <Text fill="WHITE" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label" text="Welcome to file encoder" textAlignment="CENTER">
          <font>
@@ -17,12 +17,23 @@
             <Insets bottom="15.0" />
          </VBox.margin>
       </Text>
-      <Button fx:id="uploaderBtn" mnemonicParsing="false" onAction="#uploadFile" styleClass="upload-button" text="Upload your file">
+      <Button mnemonicParsing="false" onAction="#encodeFile" styleClass="upload-button" text="Encode File">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor></Button>
+         </cursor>
+         <VBox.margin>
+            <Insets bottom="15.0" />
+         </VBox.margin></Button>
+      <Button mnemonicParsing="false" onAction="#decodeFile" styleClass="upload-button" text="Decode File">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </VBox>
