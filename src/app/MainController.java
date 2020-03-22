@@ -29,14 +29,20 @@ public class MainController {
 
         FXMLLoader result = new FXMLLoader(getClass().getResource("result.fxml"));
         Parent resultScene = result.load();
-        ResultController rc = result.getController();
-
-        File file = fc.showOpenDialog(stage);
 
 
-        rc.showFileSize(Utils.getByte(file.getCanonicalPath()));
 
-        stage.setScene(new Scene(resultScene));
+
+
+
+//        ResultController rc = result.getController();
+//
+//        File file = fc.showOpenDialog(stage);
+//
+//
+//        rc.showFileSize(Utils.getByte(file.getCanonicalPath()));
+//
+//        stage.setScene(new Scene(resultScene));
 
 
     }

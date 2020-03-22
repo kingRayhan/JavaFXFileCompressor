@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Counter.iml" filepath="$PROJECT_DIR$/Counter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaFXFileCompressor.iml" filepath="$PROJECT_DIR$/JavaFXFileCompressor.iml" />
     </modules>
   </component>
 </project>

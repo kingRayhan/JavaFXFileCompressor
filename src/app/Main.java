@@ -21,13 +21,10 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("Welcome");
-
         Parent welcome = FXMLLoader.load(getClass().getResource("welcome.fxml"));
         stage.setScene(new Scene(welcome));
-
         stage.show();
     }
-
     /**
      * Main method
      *
