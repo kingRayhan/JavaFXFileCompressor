@@ -42,12 +42,15 @@ public class MainController {
         rc.showFileSize(Integer.toString(Utils.getByte(Utils.getFileContents(file.getCanonicalPath()))));
 
         window.getChildren().setAll(result);
+
     }
 
 
     @FXML
     public void decodeFile(ActionEvent e) {
 
+
+        FileChooser fc = Utils.FileDialog("compressed");
 
         File file = fc.showSaveDialog(new Stage());
 

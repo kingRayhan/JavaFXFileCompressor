@@ -44,6 +44,14 @@ public class Utils {
         }
     }
 
+    public static FileChooser FileDialog(String ext) {
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Select txt file (*." + ext + ")", "*.txt");
+        fileChooser.getExtensionFilters().add(extFilter);
+        fileChooser.setTitle("Select a text file");
+        return fileChooser;
+    }
+
     public static FileChooser FileDialog() {
         FileChooser fileChooser = new FileChooser();
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Select txt file (*.txt)", "*.txt");
