@@ -3,6 +3,7 @@ package app;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 
 import java.io.*;
@@ -44,7 +45,7 @@ public class Utils {
         }
     }
 
-    public static FileChooser FileDialog(String ext) {
+    public static FileChooser fileDialog(String ext) {
         FileChooser fileChooser = new FileChooser();
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Select txt file (*." + ext + ")", "*.txt");
         fileChooser.getExtensionFilters().add(extFilter);
@@ -52,7 +53,7 @@ public class Utils {
         return fileChooser;
     }
 
-    public static FileChooser FileDialog() {
+    public static FileChooser fileDialog() {
         FileChooser fileChooser = new FileChooser();
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Select txt file (*.txt)", "*.txt");
         fileChooser.getExtensionFilters().add(extFilter);
@@ -60,8 +61,15 @@ public class Utils {
         return fileChooser;
     }
 
-//    public static String getFileName(String localtion)
-//    {
-////        return localtion.split("\")
-//    }
+    public static DirectoryChooser directoryDialog(String title) {
+        DirectoryChooser dc = new DirectoryChooser();
+        dc.setTitle(title);
+        return dc;
+    }
+
+    public static DirectoryChooser directoryDialog() {
+        DirectoryChooser dc = new DirectoryChooser();
+        dc.setTitle("Select directory");
+        return dc;
+    }
 }

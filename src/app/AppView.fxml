@@ -25,16 +25,16 @@
       </AnchorPane>
       <TabPane prefHeight="329.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab fx:id="comporessorFIleLocationTextField" text="Compress">
+          <Tab text="Compress">
                <content>
                   <AnchorPane prefHeight="283.0" prefWidth="537.0">
                      <children>
-                        <TextField layoutX="17.0" layoutY="15.0" prefHeight="35.0" prefWidth="397.0" promptText="FIle Localtion" />
+                        <TextField fx:id="compressorSourceFileLocationTextField" layoutX="17.0" layoutY="15.0" prefHeight="35.0" prefWidth="397.0" promptText="FIle Localtion" />
                         <Button layoutX="423.0" layoutY="15.0" mnemonicParsing="false" onAction="#comporessorChooseSourceFileLocation" prefHeight="35.0" prefWidth="99.0" text="Choose File">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
-                        <TextField layoutX="17.0" layoutY="68.0" prefHeight="35.0" prefWidth="397.0" promptText="Destinition" />
+                        <TextField fx:id="compressorDestTextField" layoutX="17.0" layoutY="68.0" prefHeight="35.0" prefWidth="397.0" promptText="Destinition" />
                         <Button layoutX="423.0" layoutY="68.0" mnemonicParsing="false" onAction="#comporessorChooseDestinitionFileLocation" prefHeight="35.0" prefWidth="99.0" text="Browse">
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -57,12 +57,12 @@
           <content>
                   <AnchorPane prefHeight="283.0" prefWidth="537.0">
                      <children>
-                        <TextField layoutX="17.0" layoutY="15.0" prefHeight="35.0" prefWidth="397.0" promptText="FIle Localtion" />
+                        <TextField fx:id="extractorSourceFileLocationTextField" layoutX="17.0" layoutY="15.0" prefHeight="35.0" prefWidth="397.0" promptText="FIle Localtion" />
                         <Button layoutX="423.0" layoutY="15.0" mnemonicParsing="false" onAction="#extractorChooseSourceFileLocation" prefHeight="35.0" prefWidth="99.0" text="Choose File">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
-                        <TextField layoutX="17.0" layoutY="68.0" prefHeight="35.0" prefWidth="397.0" promptText="Destinition" />
+                        <TextField fx:id="extractorDestTextField" layoutX="17.0" layoutY="68.0" prefHeight="35.0" prefWidth="397.0" promptText="Destinition" />
                         <Button layoutX="423.0" layoutY="68.0" mnemonicParsing="false" onAction="#extractorChooseDestinitionFileLocation" prefHeight="35.0" prefWidth="99.0" text="Browse">
                            <cursor>
                               <Cursor fx:constant="HAND" />
