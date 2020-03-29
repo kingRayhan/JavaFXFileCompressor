@@ -1,5 +1,7 @@
 package app;
 
+import Algo.HuffmanEncoder;
+import Algo.HuffmanEncodedResult;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -8,8 +10,11 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
 
 public class MainController {
+
+    private HuffmanEncoder hf = new HuffmanEncoder();
 
     @FXML
     private TextField compressorSourceFileLocationTextField;
@@ -50,8 +55,23 @@ public class MainController {
     }
 
     @FXML
-    void handleCompressButtonClick(ActionEvent event) {
-        System.out.println(compressorSourceFileLocationTextField.getText());
+    void handleCompressButtonClick(ActionEvent event) throws UnsupportedEncodingException {
+        String fileLocation = compressorSourceFileLocationTextField.getText();
+        String fileContent = Utils.getFileContents(fileLocation);
+
+        int beforeCompress = Utils.getByte(fileContent);
+        HuffmanEncodedResult compressed = hf.compress(fileContent);
+
+        int afterCompress = Utils.getByte(compressed.getEncodedData());
+
+        System.out.println("Before compress: " + beforeCompress);
+//        System.out.println("After compress: " + afterCompress);
+
+        System.out.println(compressed.getEncodedData().length());
+
+        System.out.println(hf.decompress(compressed));
+
+
     }
 
     @FXML

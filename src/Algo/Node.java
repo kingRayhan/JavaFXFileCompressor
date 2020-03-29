@@ -9,13 +9,13 @@ public class Node implements Comparable<Node> {
     public Node leftChild;
     public Node rightChild;
 
+
     public Node(char character, int freequency, Node leftChild, Node rightChild) {
         this.character = character;
         this.freequency = freequency;
         this.leftChild = leftChild;
         this.rightChild = rightChild;
     }
-
 
     /**
      * When left and right child node is null then that node is a leaf
@@ -67,6 +67,11 @@ public class Node implements Comparable<Node> {
      */
     @Override
     public int compareTo(Node that) {
-        return Integer.compare(this.freequency, that.freequency);
+        final int comparison = Integer.compare(this.freequency, that.freequency);
+        if(comparison != 0)
+        {
+            return comparison;
+        }
+        return Integer.compare(this.character, that.character);
     }
 }
