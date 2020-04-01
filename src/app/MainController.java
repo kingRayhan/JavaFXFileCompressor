@@ -6,13 +6,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.*;
-import java.util.Arrays;
 
 public class MainController {
 
@@ -24,16 +21,16 @@ public class MainController {
     private TextField extractorSourceFileLocationTextField;
 
 
-    private FileChooser fc = Utils.fileDialog();
-
     @FXML
     void comporessorChooseSourceFileLocation(ActionEvent event) {
+        FileChooser fc = Utils.fileDialog("txt");
         File file = fc.showOpenDialog(new Stage());
         compressorSourceFileLocationTextField.setText(file.getAbsolutePath());
     }
 
     @FXML
     void extractorChooseSourceFileLocation(ActionEvent event) {
+        FileChooser fc = Utils.fileDialog("ez");
         File file = fc.showOpenDialog(new Stage());
         extractorSourceFileLocationTextField.setText(file.getAbsolutePath());
     }
@@ -42,6 +39,10 @@ public class MainController {
     void handleCompressButtonClick(ActionEvent event) {
         String fileLocation = compressorSourceFileLocationTextField.getText();
         String fileContent = Utils.getFileContents(fileLocation);
+
+        /**
+         * Compressed file string with huffman algo
+         */
         HuffmanEncodedResult encoded = hf.compress(fileContent); // encode file content
 
         // dialog box
@@ -49,21 +50,19 @@ public class MainController {
         dialog.setHeaderText(null);
         dialog.setContentText("Successfully compressed to destination location");
 
-        //Set extension filter for text files
-        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Compressed file (*.expressZipper)", "*.expressZipper");
-        fc.getExtensionFilters().add(extFilter);
 
-        File file  = fc.showSaveDialog(new Stage());
+
+        //File chooser
+        FileChooser fc = Utils.fileDialog("ez");
+        File file = fc.showSaveDialog(new Stage());
 
         try {
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file.getAbsolutePath()));
             out.writeObject(encoded);
-
-
             dialog.showAndWait();
-
         } catch (IOException e) {
             System.out.println("");
+            e.printStackTrace();
             dialog.showAndWait();
         }
     }
@@ -82,17 +81,17 @@ public class MainController {
             HuffmanEncodedResult decoded = (HuffmanEncodedResult) in.readObject();
 
             //Set extension filter for text files
-            FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Compressed file (*.txt)", "*.txt");
-            fc.getExtensionFilters().add(extFilter);
-            File file  = fc.showSaveDialog(new Stage());
+            FileChooser fc = Utils.fileDialog("txt");
+            File file = fc.showSaveDialog(new Stage());
 
             String decodedContent = hf.decompress(decoded);
-            Utils.saveToFile(decodedContent , file);
+            Utils.saveToFile(decodedContent, file);
 
             dialog.showAndWait();
 
         } catch (IOException | ClassNotFoundException e) {
-            System.out.println("");
+            System.out.println(e.getMessage());
+            e.printStackTrace();
             dialog.showAndWait();
         }
     }
