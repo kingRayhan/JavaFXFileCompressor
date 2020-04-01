@@ -1,18 +1,20 @@
 package FileStream;
 
+import Algo.HuffmanEncodedResult;
+import Algo.HuffmanEncoder;
+
 import java.io.*;
 
 public class Tester {
 
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
+        HuffmanEncoder hf = new HuffmanEncoder();
 
-        var person = new Person("Rayhan" , 23);
+        HuffmanEncodedResult compressed = hf.compress("sdkjfsdksdkfhasdkj");
 
 
-        var in = new ObjectInputStream(new FileInputStream("person.fuck"));
-        System.out.println(in.readObject());
-
+        System.out.println(hf.decompress(compressed));
 
 
     }

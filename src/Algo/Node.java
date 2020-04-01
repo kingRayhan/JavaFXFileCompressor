@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Huffman tree node
  */
-public class Node implements Comparable<Node> {
+public class Node implements Comparable<Node>, Serializable {
     public char character;
     public int freequency;
     public Node leftChild;
@@ -70,8 +70,7 @@ public class Node implements Comparable<Node> {
     @Override
     public int compareTo(Node that) {
         final int comparison = Integer.compare(this.freequency, that.freequency);
-        if(comparison != 0)
-        {
+        if (comparison != 0) {
             return comparison;
         }
         return Integer.compare(this.character, that.character);

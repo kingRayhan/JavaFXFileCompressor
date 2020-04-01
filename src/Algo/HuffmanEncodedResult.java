@@ -1,21 +1,15 @@
 package Algo;
 
-import java.io.Serializable;
+import java.io.*;
 
 public class HuffmanEncodedResult implements Serializable {
     final Node root;
+    final String encodedData;
+
 
     public String getEncodedData() {
         return encodedData;
     }
-
-    final String encodedData;
-
-    @Override
-    public String toString() {
-        return encodedData;
-    }
-
 
     public HuffmanEncodedResult(String generateEncodedData, Node rootNode) {
         this.root = rootNode;
@@ -24,5 +18,14 @@ public class HuffmanEncodedResult implements Serializable {
 
     public Node getRoot() {
         return this.root;
+    }
+
+
+    @Override
+    public String toString() {
+        return "HuffmanEncodedResult{" +
+                "root=" + root +
+                ", encodedData='" + encodedData + '\'' +
+                '}';
     }
 }

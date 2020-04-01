@@ -59,7 +59,6 @@ public class MainController {
     @FXML
     void handleCompressButtonClick(ActionEvent event) {
         String fileLocation = compressorSourceFileLocationTextField.getText();
-        String fileDestinationDirectory = compressorDestTextField.getText();
         String fileContent = Utils.getFileContents(fileLocation);
         HuffmanEncodedResult encoded = hf.compress(fileContent); // encode file content
 
@@ -68,8 +67,14 @@ public class MainController {
         dialog.setHeaderText(null);
         dialog.setContentText("Successfully compressed to destination location");
 
+        //Set extension filter for text files
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Compressed file (*.expressZipper)", "*.expressZipper");
+        fc.getExtensionFilters().add(extFilter);
+
+        File file  = fc.showSaveDialog(new Stage());
+
         try {
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fileDestinationDirectory + "/compressed.compressed"));
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file.getAbsolutePath()));
             out.writeObject(encoded);
 
 
@@ -83,42 +88,30 @@ public class MainController {
 
     @FXML
     void handleExtractButtonClick(ActionEvent event) {
+        String fileLocation = extractorSourceFileLocationTextField.getText();
 
+        // dialog box
+        Alert dialog = new Alert(Alert.AlertType.INFORMATION);
+        dialog.setHeaderText(null);
+        dialog.setContentText("Successfully extracted to destination location");
 
+        try {
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream(fileLocation));
+            HuffmanEncodedResult decoded = (HuffmanEncodedResult) in.readObject();
 
+            //Set extension filter for text files
+            FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Compressed file (*.txt)", "*.txt");
+            fc.getExtensionFilters().add(extFilter);
+            File file  = fc.showSaveDialog(new Stage());
 
+            String decodedContent = hf.decompress(decoded);
+            Utils.saveToFile(decodedContent , file);
 
+            dialog.showAndWait();
 
-
-
-
-//        String fileLocation = extractorSourceFileLocationTextField.getText();
-//        String fileDestinationDirectory = extractorDestTextField.getText();
-//
-//        // Huffman
-//        String fileContent = Utils.getFileContents(fileLocation);
-//
-//        System.out.println(fileContent);
-//
-//        // dialog box
-//        Alert dialog = new Alert(Alert.AlertType.INFORMATION);
-//        dialog.setHeaderText(null);
-//        dialog.setContentText("Successfully extracted to destination location");
-//
-//        try {
-//            ObjectInputStream in = new ObjectInputStream(new FileInputStream(fileLocation));
-//            HuffmanEncodedResult decoded = (HuffmanEncodedResult) in.readObject();
-//
-////            String output = hf.decompress(decoded);
-//
-//            System.out.println(decoded);
-////            dialog.showAndWait();
-//
-//        } catch (IOException | ClassNotFoundException e) {
-//            System.out.println("");
-////            dialog.showAndWait();
-//        }
-
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("");
+            dialog.showAndWait();
+        }
     }
-
 }
