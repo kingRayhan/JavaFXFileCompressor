@@ -2,8 +2,6 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
@@ -27,20 +25,13 @@
         <tabs>
           <Tab text="Compress">
                <content>
-                  <AnchorPane prefHeight="283.0" prefWidth="537.0">
+                  <AnchorPane prefHeight="250.0" prefWidth="537.0">
                      <children>
                         <TextField fx:id="compressorSourceFileLocationTextField" layoutX="17.0" layoutY="15.0" prefHeight="35.0" prefWidth="397.0" promptText="FIle Localtion" />
                         <Button layoutX="423.0" layoutY="15.0" mnemonicParsing="false" onAction="#comporessorChooseSourceFileLocation" prefHeight="35.0" prefWidth="99.0" text="Choose File">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
-                        <TextField fx:id="compressorDestTextField" layoutX="17.0" layoutY="68.0" prefHeight="35.0" prefWidth="397.0" promptText="Destinition" />
-                        <Button layoutX="423.0" layoutY="68.0" mnemonicParsing="false" onAction="#comporessorChooseDestinitionFileLocation" prefHeight="35.0" prefWidth="99.0" text="Browse">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor></Button>
-                        <ProgressBar layoutX="17.0" layoutY="139.0" prefHeight="18.0" prefWidth="505.0" progress="0.0" />
-                        <Label layoutX="17.0" layoutY="119.0" text="Progress" />
                         <Button layoutX="210.0" layoutY="198.0" mnemonicParsing="false" onAction="#handleCompressButtonClick" prefHeight="39.0" prefWidth="120.0" text="Compress">
                            <font>
                               <Font size="15.0" />
@@ -55,20 +46,14 @@
           </Tab>
           <Tab text="Extract">
           <content>
-                  <AnchorPane prefHeight="283.0" prefWidth="537.0">
+                  <AnchorPane prefHeight="300.0" prefWidth="458.0">
                      <children>
                         <TextField fx:id="extractorSourceFileLocationTextField" layoutX="17.0" layoutY="15.0" prefHeight="35.0" prefWidth="397.0" promptText="FIle Localtion" />
                         <Button layoutX="423.0" layoutY="15.0" mnemonicParsing="false" onAction="#extractorChooseSourceFileLocation" prefHeight="35.0" prefWidth="99.0" text="Choose File">
                            <cursor>
                               <Cursor fx:constant="HAND" />
-                           </cursor></Button>
-                        <TextField fx:id="extractorDestTextField" layoutX="17.0" layoutY="68.0" prefHeight="35.0" prefWidth="397.0" promptText="Destinition" />
-                        <Button layoutX="423.0" layoutY="68.0" mnemonicParsing="false" onAction="#extractorChooseDestinitionFileLocation" prefHeight="35.0" prefWidth="99.0" text="Browse">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor></Button>
-                        <ProgressBar layoutX="17.0" layoutY="139.0" prefHeight="18.0" prefWidth="505.0" progress="0.0" />
-                        <Label layoutX="17.0" layoutY="119.0" text="Progress" />
+                           </cursor>
+                        </Button>
                         <Button layoutX="210.0" layoutY="198.0" mnemonicParsing="false" onAction="#handleExtractButtonClick" prefHeight="39.0" prefWidth="120.0" text="Extract">
                            <font>
                               <Font size="15.0" />

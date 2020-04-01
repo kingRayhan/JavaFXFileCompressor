@@ -22,32 +22,14 @@ public class MainController {
     private TextField compressorSourceFileLocationTextField;
     @FXML
     private TextField extractorSourceFileLocationTextField;
-    @FXML
-    private TextField compressorDestTextField;
-    @FXML
-    private TextField extractorDestTextField;
 
 
     private FileChooser fc = Utils.fileDialog();
 
     @FXML
-    void comporessorChooseDestinitionFileLocation(ActionEvent event) {
-        DirectoryChooser dc = new DirectoryChooser();
-        File file = dc.showDialog(new Stage());
-        compressorDestTextField.setText(file.getAbsolutePath());
-    }
-
-    @FXML
     void comporessorChooseSourceFileLocation(ActionEvent event) {
         File file = fc.showOpenDialog(new Stage());
         compressorSourceFileLocationTextField.setText(file.getAbsolutePath());
-    }
-
-    @FXML
-    void extractorChooseDestinitionFileLocation(ActionEvent event) {
-        DirectoryChooser dc = Utils.directoryDialog();
-        File dir = dc.showDialog(new Stage());
-        extractorDestTextField.setText(dir.getAbsolutePath());
     }
 
     @FXML
