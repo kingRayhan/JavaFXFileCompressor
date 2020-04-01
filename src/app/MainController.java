@@ -4,13 +4,15 @@ import Algo.HuffmanEncoder;
 import Algo.HuffmanEncodedResult;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.UnsupportedEncodingException;
+import javax.swing.*;
+import java.io.*;
+import java.util.Arrays;
 
 public class MainController {
 
@@ -55,27 +57,67 @@ public class MainController {
     }
 
     @FXML
-    void handleCompressButtonClick(ActionEvent event) throws UnsupportedEncodingException {
+    void handleCompressButtonClick(ActionEvent event) {
         String fileLocation = compressorSourceFileLocationTextField.getText();
+        String fileDestinationDirectory = compressorDestTextField.getText();
         String fileContent = Utils.getFileContents(fileLocation);
+        HuffmanEncodedResult encoded = hf.compress(fileContent); // encode file content
 
-        int beforeCompress = Utils.getByte(fileContent);
-        HuffmanEncodedResult compressed = hf.compress(fileContent);
+        // dialog box
+        Alert dialog = new Alert(Alert.AlertType.INFORMATION);
+        dialog.setHeaderText(null);
+        dialog.setContentText("Successfully compressed to destination location");
 
-        int afterCompress = Utils.getByte(compressed.getEncodedData());
-
-        System.out.println("Before compress: " + beforeCompress);
-//        System.out.println("After compress: " + afterCompress);
-
-        System.out.println(compressed.getEncodedData().length());
-
-        System.out.println(hf.decompress(compressed));
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fileDestinationDirectory + "/compressed.compressed"));
+            out.writeObject(encoded);
 
 
+            dialog.showAndWait();
+
+        } catch (IOException e) {
+            System.out.println("");
+            dialog.showAndWait();
+        }
     }
 
     @FXML
     void handleExtractButtonClick(ActionEvent event) {
+
+
+
+
+
+
+
+
+
+//        String fileLocation = extractorSourceFileLocationTextField.getText();
+//        String fileDestinationDirectory = extractorDestTextField.getText();
+//
+//        // Huffman
+//        String fileContent = Utils.getFileContents(fileLocation);
+//
+//        System.out.println(fileContent);
+//
+//        // dialog box
+//        Alert dialog = new Alert(Alert.AlertType.INFORMATION);
+//        dialog.setHeaderText(null);
+//        dialog.setContentText("Successfully extracted to destination location");
+//
+//        try {
+//            ObjectInputStream in = new ObjectInputStream(new FileInputStream(fileLocation));
+//            HuffmanEncodedResult decoded = (HuffmanEncodedResult) in.readObject();
+//
+////            String output = hf.decompress(decoded);
+//
+//            System.out.println(decoded);
+////            dialog.showAndWait();
+//
+//        } catch (IOException | ClassNotFoundException e) {
+//            System.out.println("");
+////            dialog.showAndWait();
+//        }
 
     }
 

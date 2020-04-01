@@ -55,8 +55,8 @@ public class Utils {
 
     public static FileChooser fileDialog() {
         FileChooser fileChooser = new FileChooser();
-        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Select txt file (*.txt)", "*.txt");
-        fileChooser.getExtensionFilters().add(extFilter);
+//        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Select txt file (*.txt)", "*.txt");
+//        fileChooser.getExtensionFilters().add(extFilter);
         fileChooser.setTitle("Select a text file");
         return fileChooser;
     }

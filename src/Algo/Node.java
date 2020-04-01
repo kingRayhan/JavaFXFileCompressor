@@ -1,5 +1,7 @@
 package Algo;
 
+import java.io.Serializable;
+
 /**
  * Huffman tree node
  */

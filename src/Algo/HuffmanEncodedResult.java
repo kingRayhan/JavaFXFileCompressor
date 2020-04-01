@@ -1,6 +1,8 @@
 package Algo;
 
-public class HuffmanEncodedResult {
+import java.io.Serializable;
+
+public class HuffmanEncodedResult implements Serializable {
     final Node root;
 
     public String getEncodedData() {
@@ -11,10 +13,7 @@ public class HuffmanEncodedResult {
 
     @Override
     public String toString() {
-        return "HuffmanEncodedResult{" +
-                "root=" + root +
-                ", encodedData='" + encodedData + '\'' +
-                '}';
+        return encodedData;
     }
 
 

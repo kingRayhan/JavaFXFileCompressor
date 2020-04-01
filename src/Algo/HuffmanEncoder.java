@@ -1,8 +1,6 @@
 // Got help from: https://youtu.be/zSsTG3Flo-I
-//https://youtu.be/zSsTG3Flo-I?t=1623
 package Algo;
 
-import javax.print.DocFlavor;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
@@ -110,6 +108,7 @@ public class HuffmanEncoder {
     }
 
 
+    // TODO: reverse lookup table
     private void buildLookupTableRecursively(
             Node node,
             String str,
@@ -119,6 +118,9 @@ public class HuffmanEncoder {
             buildLookupTableRecursively(node.rightChild, str + '1', lookupTable);
         } else {
             lookupTable.put(node.character, str);
+            // TODO: add reverse lookup table in a map
+            // "110": 'A'
+            // BitStream
         }
     }
 
