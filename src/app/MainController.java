@@ -48,13 +48,15 @@ public class MainController {
         // dialog box
         Alert dialog = new Alert(Alert.AlertType.INFORMATION);
         dialog.setHeaderText(null);
-        dialog.setContentText("Successfully compressed to destination location");
+
 
 
 
         //File chooser
         FileChooser fc = Utils.fileDialog("ez");
         File file = fc.showSaveDialog(new Stage());
+
+        dialog.setContentText("Successfully compressed to destination location\nSaved in: " +  file.getAbsolutePath());
 
         try {
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file.getAbsolutePath()));
@@ -74,7 +76,7 @@ public class MainController {
         // dialog box
         Alert dialog = new Alert(Alert.AlertType.INFORMATION);
         dialog.setHeaderText(null);
-        dialog.setContentText("Successfully extracted to destination location");
+
 
         try {
             ObjectInputStream in = new ObjectInputStream(new FileInputStream(fileLocation));
@@ -83,6 +85,9 @@ public class MainController {
             //Set extension filter for text files
             FileChooser fc = Utils.fileDialog("txt");
             File file = fc.showSaveDialog(new Stage());
+
+            dialog.setContentText("Successfully extracted to destination location\nSaved in: " + file.getAbsolutePath());
+
 
             String decodedContent = hf.decompress(decoded);
             Utils.saveToFile(decodedContent, file);
